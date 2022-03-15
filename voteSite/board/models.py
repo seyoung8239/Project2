@@ -8,8 +8,8 @@ class Board(models.Model):
     content = models.TextField()
     recommend = models.IntegerField()
     image = models.ImageField(blank=True, null=True, upload_to="uploads")
-    author = models.CharField(max_length=100)
     owner = models.ForeignKey('auth.user', related_name='boards', on_delete=models.CASCADE)
+    vote = models.JSONField()
 
     class Meta:
         ordering = ['createdAt']
